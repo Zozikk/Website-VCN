@@ -1,0 +1,23 @@
+{
+  "name": "vcn-auth-system",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend",
+    "client-backend",
+    "client-frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently -n auth,panel,client-api,client-web -c green,cyan,magenta,yellow \"npm run dev --workspace auth-server\" \"npm run dev --workspace sso-panel\" \"npm run dev --workspace client-backend\" \"npm run dev --workspace client-frontend\"",
+    "dev:auth": "npm run dev --workspace auth-server",
+    "dev:panel": "npm run dev --workspace sso-panel",
+    "dev:client-backend": "npm run dev --workspace client-backend",
+    "dev:client-frontend": "npm run dev --workspace client-frontend",
+    "build": "npm run build --workspace sso-panel && npm run build --workspace client-frontend",
+    "test": "npm run test --workspace auth-server && npm run test --workspace client-backend",
+    "db:clean": "npm run db:clean --workspace auth-server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

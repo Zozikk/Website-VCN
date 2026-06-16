@@ -1,0 +1,25 @@
+{
+  "name": "auth-server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "test": "node --test --test-concurrency=1 test/app.test.js test/integration/logout.integration.test.js test/integration/admin-crud.integration.test.js",
+    "db:clean": "node scripts/cleanDatabase.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
+    "better-sqlite3": "^11.9.0",
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "supertest": "^7.1.1"
+  }
+}
