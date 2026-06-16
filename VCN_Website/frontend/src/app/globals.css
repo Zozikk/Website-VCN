@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+/* VCN Admin Design System — shared tokens for CMS panel */
+:root {
+  --vcn-primary: #CB1919;
+  --vcn-primary-hover: #A31414;
+  --vcn-bg: #FFFFFF;
+  --vcn-heading: #333333;
+  --vcn-text: #666666;
+  --vcn-border: #E0E0E0;
+  --vcn-header-height: 56px;
+  --vcn-content-width: 1280px;
+}
+
+@theme inline {
+  --color-vcn-red: var(--vcn-primary);
+  --color-vcn-red-dark: var(--vcn-primary-hover);
+  --color-vcn-heading: var(--vcn-heading);
+  --color-vcn-text: var(--vcn-text);
+  --color-vcn-border: var(--vcn-border);
+  --font-sans: var(--font-source-sans);
+}
+
+body {
+  background: var(--vcn-bg);
+  color: var(--vcn-text);
+  font-family: var(--font-source-sans), "Segoe UI", system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@layer components {
+  .app-header {
+    @apply sticky top-0 z-50 border-b border-vcn-border bg-white;
+    height: var(--vcn-header-height);
+  }
+
+  .app-header-inner {
+    @apply mx-auto flex h-full items-center gap-8 px-6;
+    max-width: var(--vcn-content-width);
+  }
+
+  .app-nav {
+    @apply flex flex-1 items-center gap-1;
+  }
+
+  .app-nav-link {
+    @apply px-3.5 py-2 text-sm font-medium text-vcn-text;
+    border-bottom: 2px solid transparent;
+  }
+
+  .app-nav-link:hover {
+    color: var(--vcn-heading);
+  }
+
+  .app-nav-link-active {
+    color: var(--vcn-primary);
+    border-bottom-color: var(--vcn-primary);
+  }
+
+  .app-main {
+    @apply mx-auto w-full px-6 py-6;
+    max-width: var(--vcn-content-width);
+  }
+
+  .page-section {
+    @apply border border-vcn-border bg-white p-6;
+  }
+
+  .page-header {
+    @apply mb-6 flex items-start justify-between gap-4 border-b border-vcn-border pb-4;
+  }
+
+  .page-title {
+    @apply m-0 text-xl font-semibold text-vcn-heading;
+  }
+
+  .page-description {
+    @apply m-0 mt-1 text-sm text-vcn-text;
+  }
+
+  .ds-input {
+    @apply w-full border border-vcn-border bg-white px-3 py-2.5 text-sm text-vcn-heading outline-none;
+    border-radius: 4px;
+  }
+
+  .ds-input:focus {
+    border-color: var(--vcn-primary);
+  }
+
+  .ds-textarea {
+    @apply w-full resize-y border border-vcn-border bg-white px-3 py-2.5 text-sm text-vcn-heading outline-none;
+    border-radius: 4px;
+    min-height: 120px;
+  }
+
+  .ds-textarea:focus {
+    border-color: var(--vcn-primary);
+  }
+
+  .ds-table {
+    @apply w-full border-collapse text-sm;
+  }
+
+  .ds-table th {
+    @apply border-b border-vcn-border bg-[#FAFAFA] px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-vcn-heading;
+  }
+
+  .ds-table td {
+    @apply border-b border-vcn-border px-4 py-3 text-vcn-text;
+  }
+
+  .ds-table tbody tr:hover {
+    @apply bg-[#FAFAFA];
+  }
+
+  .ds-table tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .ds-alert-error {
+    @apply border border-red-200 bg-red-50 px-4 py-3 text-sm text-vcn-red-dark;
+    border-radius: 4px;
+  }
+}
